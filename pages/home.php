@@ -12,8 +12,37 @@ if (isset($_POST['todo'])) {
                header('Location: ' . $_SERVER['PHP_SELF']);
     exit();
 }
+if (isset($_POST['delete'])) {
+    $index = $_POST['delete'];
 
-    
+    if (isset($_SESSION['tasks'][$index])) {
+        unset($_SESSION['tasks'][$index]);
+    }
+
+    // نعيد ترتيب الarray
+    $_SESSION['tasks'] = array_values($_SESSION['tasks']);
+
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit();
+}
+
+ if (isset($_POST['checkbox'])) {
+
+    $index = $_POST['checkbox'];
+
+    if(!isset($_SESSION['checked'])){
+        $_SESSION['checked'] = [];
+    }
+
+    if(isset($_SESSION['checked'][$index])){
+        unset($_SESSION['checked'][$index]);
+    }else{
+        $_SESSION['checked'][$index] = true;
+    }
+
+    header('Location: '.$_SERVER['PHP_SELF']);
+    exit();
+}
 ?>
 
 
@@ -29,29 +58,53 @@ if (isset($_POST['todo'])) {
 <body>
     <div class="form-todo">
         <h1>Todo list</h1>
-
+<!-- دي لاضافه -->
 <form  method="post" >
     <input type="text"   class="form-control" name="todo" placeholder="Add a new task...">
-    <button type="submit" class="btn">To create  </button>
+    <button type="submit" class="btn">To create</button>
     </div>
+    </form>
+     <div>
+        <span>Tasks created</span>
+        <span><?= count($_SESSION['tasks']) ?></span>
+    </div>
+<div>  
+    <span>Completed</span>
+    <span><?= count($_SESSION['checked']) ?></span>
+</div>
+      
+
 <?php if (!empty($_SESSION['tasks'])): ?>
     <ul>
-        <?php foreach ($_SESSION['tasks'] as $task): ?>
-           
+<?php foreach ($_SESSION['tasks'] as $index => $task): ?>
 <li>
-    <div class="task-content">
-        <span class="circle"></span>
-        <span><?= htmlspecialchars($task) ?></span>
-    </div>
 
-    <i class="fa-solid fa-trash delete-icon"></i>
+   <!-- ده للعلامه -->
+  <form method="post"  style="display:inline;">
+
+<button type="submit"
+        name="checkbox"
+        value="<?= $index ?>"
+        class="circle <?= isset($_SESSION['checked'][$index]) ? 'active' : '' ?>">
+</button>
+    </form>
+
+        <span class="task-text">
+   <?= htmlspecialchars($task) ?>
+</span>
+<!-- دي للحذف -->
+    <form method="post" style="display:inline;">
+        <button type="submit" name="delete" value="<?= $index ?>" class="delete-btn">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </form>
 </li>
-        <?php endforeach; ?>
+<?php endforeach; ?>
     </ul>
 <?php else: ?>
     <p>مفيش tasks لحد دلوقتي</p>
 <?php endif; ?>
-</form>
+
 
 
 </body>
