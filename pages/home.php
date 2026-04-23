@@ -85,7 +85,7 @@ if (isset($_POST['delete'])) {
     <ul>
 <?php foreach ($_SESSION['tasks'] as $index => $task): ?>
 <li>
-
+ 
    <!-- ده للعلامه -->
   <form method="post"  style="display:inline;">
 
