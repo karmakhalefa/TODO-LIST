@@ -71,3 +71,44 @@ ul li {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.text{
+    display: flex;
+    justify-content: space-around;
+    margin-block:50px;
+
+}
+.created{
+
+    color: #feaf00;
+}
+.Completed{
+   color: #feaf00;
+}
+
+
+.Completed_number{
+  display: block;
+  width: 52px;
+  height: 19px;
+      border-radius: 999px;
+    border: 1px solid;
+    background-color: black;
+    color: white;
+    padding: 2px 8px;
+}
+.created_number{
+    display: block;
+    width: 15px;
+  height: 19px;
+        border-radius: 999px;
+    border: 1px solid;
+    background-color: black;
+    color: white;
+    padding: 2px 8px;
+}
+.num, .nums{
+  display: flex;
+  align-items:center;
+  gap: 10px;
+ 
+}

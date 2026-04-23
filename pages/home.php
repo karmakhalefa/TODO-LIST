@@ -5,6 +5,9 @@ if (isset($_POST['todo'])) {
       if (!isset($_SESSION['tasks'])) {
         $_SESSION['tasks'] = [];
     }
+     if (empty($_POST['todo'])) {
+header('Location: ' . $_SERVER['PHP_SELF']); exit();
+     }
       $tasks = $_SESSION['tasks'];
          $task = $_POST['todo'];
              $tasks[] = $task;
@@ -64,15 +67,19 @@ if (isset($_POST['delete'])) {
     <button type="submit" class="btn">To create</button>
     </div>
     </form>
-     <div>
-        <span>Tasks created</span>
-        <span><?= count($_SESSION['tasks']) ?></span>
+    <div class="text">  
+           <div class="num">
+        <span class="created">Tasks created</span>
+        <span class="created_number"><?= count($_SESSION['tasks'] ?? []) ?></span>
     </div>
-<div>  
-    <span>Completed</span>
-    <span><?= count($_SESSION['checked']) ?></span>
+ <div class="nums">
+    <span class="Completed">Completed</span>
+    <span class="Completed_number"><?= count($_SESSION['checked'] ?? []) ?> de <span ><?= count($_SESSION['tasks'] ?? []) ?></span></span>
 </div>
-      
+
+</div>
+
+    
 
 <?php if (!empty($_SESSION['tasks'])): ?>
     <ul>
