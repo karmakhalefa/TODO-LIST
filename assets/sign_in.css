@@ -61,3 +61,13 @@ form {
   color: #feaf00;
   font-size: 20px;
 }
+.todo{
+    border: 1px solid #ccc;
+    width: 390px;
+    padding: 32px 30px;
+    border-radius: 20px;
+    height: 600px;
+        margin: auto;
+    background-color:#FFFF;
+        box-shadow: 3px 25px 25px 3px #f4e8e8  
+}

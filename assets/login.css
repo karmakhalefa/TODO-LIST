@@ -1,0 +1,58 @@
+.line {
+  background-color: #feaf00;
+  width: 9px;
+  height: 50px;
+}
+.header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 16px;
+}
+.form-todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+}
+body{
+background-color: #eaeaea;
+    padding-top: 57px;
+
+}
+input{
+   border: 1px solid #ccc;
+  width:300px;
+  padding: 16px 32px;
+    border-radius: 8px; 
+
+}
+.todo{
+    border: 1px solid #ccc;
+    width: 390px;
+    padding: 32px 30px;
+    border-radius: 20px;
+    height: 600px;
+        margin: auto;
+    background-color:#FFFF;
+        box-shadow: 3px 25px 25px 3px #f4e8e8  
+}
+.btn {
+padding: 16px 32px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #feaf00;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-block: 30px;
+    width: 367px;
+
+}
+.form-text{
+    color: #feaf00;
+}
+.text{
+        text-align: center
+}
