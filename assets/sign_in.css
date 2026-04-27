@@ -1,0 +1,63 @@
+.line {
+  background-color: #feaf00;
+  width: 9px;
+  height: 50px;
+}
+.header {
+  display: flex;
+
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 16px;
+}
+.task-text {
+  color: #000000;
+}
+.form-todo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+p {
+  color: gray;
+  font-size: 25px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: anchor-center;
+  gap: 20px;
+}
+.btn {
+  background-color: #feaf00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 560px;
+  border-radius: 4px;
+}
+.form-control {
+  padding: 10px;
+  font-size: 16px;
+  width: 530px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-password {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-group {
+  display: flex;
+  gap: 8px;
+}
+.form-text {
+  color: #feaf00;
+  font-size: 20px;
+}

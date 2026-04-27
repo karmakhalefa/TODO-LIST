@@ -60,7 +60,10 @@ if (isset($_POST['delete'])) {
 </head>
 <body>
     <div class="form-todo">
+        <div class="header">
         <h1>Todo list</h1>
+      <div class="line"></div>
+</div>
 <!-- دي لاضافه -->
 <form  method="post" >
     <input type="text"   class="form-control" name="todo" placeholder="Add a new task...">
@@ -96,7 +99,7 @@ if (isset($_POST['delete'])) {
 </button>
     </form>
 
-        <span class="task-text">
+<span class="task-text <?= isset($_SESSION['checked'][$index]) ? 'done' : '' ?>">
    <?= htmlspecialchars($task) ?>
 </span>
 <!-- دي للحذف -->
