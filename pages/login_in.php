@@ -1,3 +1,40 @@
+
+<?php
+session_start();
+$email = "";
+$password = "";
+$error = "";
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  $email = $_POST['email'];
+$password = $_POST['password'];
+
+if(empty($email) || empty($password)){
+   $error = "Please fill all fields";
+}
+else{
+
+   $users = json_decode(file_get_contents("users.json"), true);
+
+   $found = false;
+
+   foreach($users as $user){
+
+      if(
+         $user["email"] === $email &&
+         $user["password"] === $password
+      ){
+         $found = true;
+         break;
+      }
+
+   }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
