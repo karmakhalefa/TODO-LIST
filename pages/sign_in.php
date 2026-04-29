@@ -7,6 +7,7 @@ session_start();
 
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@ session_start();
   <div class="form-group">  <input    class="form-password"  type="password" name="password" placeholder="Password" required>
   <input class="form-password" type="password" name="confirm_password" placeholder="Confirm Password" required></div>
 
-  <button  class="btn"  type="submit">Sign In</button>
+  <button  class="btn" name="sign_in" type="submit">Sign In</button>
   <div>
 <span>Forgot your password?</span>
 <span class="form-text"> Reset Password</span>
