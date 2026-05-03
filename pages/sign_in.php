@@ -2,12 +2,52 @@
 <?php
 session_start();
 
+$name = "";
+$email = "";
+$password = "";
+$confirmPassword = "";
+$error = "";
 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$name = $_POST['name'];
+  $email = $_POST['email'];
+$password = $_POST['password'];
+$confirmPassword =$_POST['confirmPassword'];
 
+if(empty($email) || empty($password) || empty($name) || empty($confirmPassword)){
+   $error = "Please fill all fields";
+}
+  elseif($password !== $confirmPassword){
+     $error = "Passwords do not match";
+  }
+  else{
 
+     $file = "../assets/DATE/DATE.JSON";
 
+     $users = json_decode(file_get_contents($file), true);
 
+     if(!$users){
+        $users = [];
+     }
+
+     // 🔥 ندي ID جديد
+     $id = count($users) + 1;
+
+     // 🔥 نضيف المستخدم
+     $users[] = [
+        "id" => $id,
+        "name" => $name,
+        "email" => $email,
+        "password" => $password
+     ];
+
+     // 🔥 نحفظ
+     file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
+
+     header("Location: login_in.php");
+     exit();
+  }}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +74,7 @@ session_start();
 </div>
 
 <form action="" method="POST">
-  <input   class="form-control" type="text" name="username" placeholder="Username" required>
+  <input   class="form-control" type="text" name="name" placeholder="Username" required>
   <input class="form-control" type="text" name="email" placeholder="Email" required>
   <div class="form-group">  <input    class="form-password"  type="password" name="password" placeholder="Password" required>
   <input class="form-password" type="password" name="confirm_password" placeholder="Confirm Password" required></div>
