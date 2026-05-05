@@ -16,14 +16,15 @@ if(empty($email) || empty($password)){
 }
 else{
 
-   $users = json_decode(file_get_contents("users.json"), true);
+   $users = json_decode(file_get_contents("../assets/DATE/DATE.JSON"), true);
 
    $found = false;
 
    foreach($users as $user){
 
       if(
-         $user["email"] === $email &&
+         $user["email"] === $email
+          &&
          $user["password"] === $password
       ){
          $found = true;
@@ -31,7 +32,7 @@ else{
       }
 
    }
-}
+}}
 
 ?>
 
